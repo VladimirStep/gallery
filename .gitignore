@@ -30,4 +30,4 @@ doc/
 .idea
 .secret
 
-/uploads/*
+public/uploads/*
