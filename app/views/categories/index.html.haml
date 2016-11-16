@@ -1,8 +1,6 @@
-%main.container
-  .row
-    %h1.text-center Categories
-    %ul.nav.nav-pills.nav-justified
-      - @categories.each do |category|
-        %li{role: 'presentation'}
-          %a{href: '#'}
-            = category.category_name    
+%h1.text-center Categories
+%ul.nav.nav-pills.nav-justified
+  - @categories.each do |category|
+    %li{role: 'presentation'}
+      %a{href: '#'}
+        = category.category_name

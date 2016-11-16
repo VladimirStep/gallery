@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root 'pictures#index'
+
+  get 'pictures/index'
+
   get 'categories/index'
 
   get 'categories/show'
