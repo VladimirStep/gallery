@@ -1,5 +1,6 @@
 %h1.text-center Pictures
-%div
-  - @pictures.each do |picture|
+- @pictures.each do |picture|
+  %div.col-xs-6.col-sm-4.col-md-3
     %a.thumbnail{href: '#'}
-      %img.img-responsive.center-block{src: "#{picture.image.url}"}
+      .image-holder.center-block
+        %img.img-responsive.center-block{src: "#{picture.image.thumb.url}"}
