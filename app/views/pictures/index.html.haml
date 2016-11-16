@@ -1,6 +1,6 @@
 %h1.text-center Pictures
 - @pictures.each do |picture|
   %div.col-xs-6.col-sm-4.col-md-3
-    %a.thumbnail{href: '#'}
+    %a.thumbnail{href: "#{category_picture_url(picture.category.category_name, picture)}"}
       .image-holder.center-block
         %img.img-responsive.center-block{src: "#{picture.image.thumb.url}"}
