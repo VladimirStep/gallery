@@ -5,5 +5,5 @@ class Category < ApplicationRecord
                             uniqueness: true
   validates_associated :pictures
 
-  # TODO Capitalize categories name
+  # TODO To lower all categories name
 end

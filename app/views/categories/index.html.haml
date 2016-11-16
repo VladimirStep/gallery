@@ -2,5 +2,4 @@
 %ul.nav.nav-pills.nav-justified
   - @categories.each do |category|
     %li{role: 'presentation'}
-      %a{href: '#'}
-        = category.category_name
+      = link_to category.category_name, category_path(category.category_name)

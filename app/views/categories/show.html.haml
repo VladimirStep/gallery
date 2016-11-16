@@ -1,2 +1,6 @@
-%h1 Categories#show
-%p Find me in app/views/categories/show.html.erb
+%h1.text-center= @category.category_name.capitalize
+- @pictures.each do |picture|
+  %div.col-xs-6.col-sm-4.col-md-3
+    %a.thumbnail{href: '#'}
+      .image-holder.center-block
+        %img.img-responsive.center-block{src: "#{picture.image.thumb.url}"}
