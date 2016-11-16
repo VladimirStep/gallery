@@ -2,4 +2,4 @@
 %ul.nav.nav-pills.nav-justified
   - @categories.each do |category|
     %li{role: 'presentation'}
-      = link_to category.category_name, category_path(category.category_name)
+      = link_to category.category_name.capitalize, category_path(category.category_name)
