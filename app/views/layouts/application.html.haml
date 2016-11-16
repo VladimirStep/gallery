@@ -12,4 +12,6 @@
       = render 'layouts/header'
       %main
         .row
+          %p.notice= notice
+          %p.alert= alert
           = yield

@@ -34,6 +34,7 @@ gem 'haml'
 gem 'haml-rails', '~> 0.9'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "mini_magick"
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

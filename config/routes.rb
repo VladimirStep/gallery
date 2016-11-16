@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'pictures#index'
+  devise_for :users
+  root to: 'pictures#index'
 
   resources :categories, param: :category_name, only: [:index, :show] do
     # OPTIMIZE Avoid dubling. Add strict link with the only one category name to the picture.
