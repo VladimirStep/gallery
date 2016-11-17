@@ -1,1 +1,4 @@
 %img.img-responsive.center-block{src: "#{@picture.image.url}"}
+  = render 'form'
+  - @comments.each do |comment|
+    %p= comment.body
