@@ -23,7 +23,7 @@
           - if user_signed_in?
             %li
               %p.navbar-text
-                email@email.com
+                = current_user.email
             %li.dropdown
               %a{href: '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown', role: 'button', 'aria-haspopup' => 'true', 'aria-expanded' => 'false'}
                 Account

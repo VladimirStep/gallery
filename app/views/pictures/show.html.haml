@@ -1,4 +1,11 @@
 %img.img-responsive.center-block{src: "#{@picture.image.url}"}
-  = render 'form'
+  %h4 COMMENTS
+  = render 'form' if user_signed_in?
   - @comments.each do |comment|
-    %p= comment.body
+    .media
+      .media-body
+        %h5.media-heading
+          = comment.user.email
+          %small= time_ago_in_words(comment.created_at)
+        %p= comment.body
+        
