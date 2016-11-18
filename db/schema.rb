@@ -29,11 +29,10 @@ ActiveRecord::Schema.define(version: 20161118084419) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.boolean  "status",     default: false
     t.integer  "picture_id"
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["picture_id"], name: "index_likes_on_picture_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end

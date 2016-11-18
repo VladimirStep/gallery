@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
-  def enlike
+  def create
   end
 
-  def dislike
+  def destroy
   end
 end
