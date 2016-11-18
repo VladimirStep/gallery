@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     current_user.likes.create!(like_params)
     redirect_to category_picture_path(category_param[:category_name], picture_param[:picture_id])

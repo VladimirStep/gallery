@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
-    @comment = current_user.comments.create!(comment_params)
+    current_user.comments.create!(comment_params)
     redirect_to category_picture_path(category_param[:category_name], picture_param[:picture_id])
   end
 
