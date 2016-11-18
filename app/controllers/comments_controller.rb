@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: :create
+
+  def index
+    @comments = Comment.all.order(created_at: :desc)
+  end
 
   def create
     current_user.comments.create!(comment_params)

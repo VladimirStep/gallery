@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get ':id', to: 'pictures#show', as: 'picture'
   end
   
-  resources :comments, only: [:create]
+  resources :comments, only: [:create, :index]
   resources :likes, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
