@@ -1,0 +1,17 @@
+%h1.text-center
+  = @user.email
+  navigation
+/ %table.table
+/   %thead
+/     %th Date/time
+/     %th Picture
+/     %th Comment
+/   %tbody
+/     - @comments.each do |comment|
+/       %tr
+/         %td= comment.created_at
+/         %td= comment.picture_id
+/         %td= comment.body
+
+= debug user_session[:track_user] if user_signed_in?
+= debug session

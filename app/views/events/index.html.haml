@@ -1,0 +1,14 @@
+%h1.text-center Events
+%table.table
+  %thead
+    %th User
+    %th{colspan: '5'} Actions
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.email
+        %td= link_to 'navigation', user_navigation_path(user.id)
+        %td user sign in
+        %td user sign out
+        %td= link_to 'likes', user_likes_path(user.id)
+        %td= link_to 'comments', user_comments_path(user.id)

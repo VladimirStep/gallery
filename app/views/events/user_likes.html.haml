@@ -1,0 +1,12 @@
+%h1.text-center
+  = @user.email
+  likes
+%table.table
+  %thead
+    %th Date/time
+    %th Picture
+  %tbody
+    - @likes.each do |like|
+      %tr
+        %td= like.created_at
+        %td= like.picture_id
