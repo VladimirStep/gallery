@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find_by(category_name: params[:category_name])
-    @pictures = @category.pictures
+    @pictures = @category.pictures.page(params[:page]).per(5)
   end
 
   private

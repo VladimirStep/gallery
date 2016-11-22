@@ -10,3 +10,5 @@
       %tr
         %td= action.created_at
         %td= action.url
+%nav{'aria-label' => 'Page navigation', class: 'text-center'}
+  = paginate @actions

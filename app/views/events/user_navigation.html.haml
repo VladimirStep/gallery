@@ -10,3 +10,5 @@
       %tr
         %td= navigation.created_at
         %td= navigation.url
+%nav{'aria-label' => 'Page navigation', class: 'text-center'}
+  = paginate @navigations

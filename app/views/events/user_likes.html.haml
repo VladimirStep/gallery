@@ -10,3 +10,5 @@
       %tr
         %td= like.created_at
         %td= like.picture_id
+%nav{'aria-label' => 'Page navigation', class: 'text-center'}
+  = paginate @likes

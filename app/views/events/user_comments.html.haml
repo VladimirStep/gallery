@@ -12,3 +12,5 @@
         %td= comment.created_at
         %td= comment.picture_id
         %td= comment.body
+%nav{'aria-label' => 'Page navigation', class: 'text-center'}
+  = paginate @comments

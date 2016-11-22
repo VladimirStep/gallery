@@ -7,3 +7,5 @@
           = time_ago_in_words(comment.created_at)
           ago
       %p= comment.body
+%nav{'aria-label' => 'Page navigation', class: 'text-center'}
+  = paginate @comments

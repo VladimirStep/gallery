@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: :create
 
   def index
-    @comments = Comment.all.order(created_at: :desc)
+    @comments = Comment.all.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def create
