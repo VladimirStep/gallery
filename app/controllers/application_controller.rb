@@ -8,12 +8,6 @@ class ApplicationController < ActionController::Base
   end
 
   def track_user
-    if user_signed_in?
-      unless user_session["track_user"].nil?
-        user_session["track_user"] += " #{env["REQUEST_PATH"]}"
-      else
-        user_session["track_user"] = env["REQUEST_PATH"]
-      end
-    end
+    Event.create!(url: env["REQUEST_PATH"], user_id: current_user.id) if user_signed_in?
   end
 end

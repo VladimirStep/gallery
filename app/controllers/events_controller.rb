@@ -1,10 +1,12 @@
 class EventsController < ApplicationController
+  before_action :set_user, only: [:user_navigation, :user_likes, :user_comments]
+
   def index
     @users = User.all
   end
 
   def user_navigation
-    @user = User.find(params[:id])
+    @navigations = @user.events
   end
 
   def user_sign_in
@@ -16,12 +18,14 @@ class EventsController < ApplicationController
   end
 
   def user_likes
-    @user = User.find(params[:id])
     @likes = @user.likes
   end
 
   def user_comments
-    @user = User.find(params[:id])
     @comments = @user.comments
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
