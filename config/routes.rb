@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
   resources :events, only: [:index]
 
-  get 'events/user_comments/:id', to: 'events#user_comments', as: 'user_comments'
-  get 'events/user_likes/:id', to: 'events#user_likes', as: 'user_likes'
-  get 'events/user_navigation/:id', to: 'events#user_navigation', as: 'user_navigation'
-  get 'events/user_sign_in/:id', to: 'events#user_sign_in', as: 'user_sign_in'
-  get 'events/user_sign_out/:id', to: 'events#user_sign_out', as: 'user_sign_out'
+  get 'events/:id/comments', to: 'events#user_comments', as: 'user_comments'
+  get 'events/:id/likes', to: 'events#user_likes', as: 'user_likes'
+  get 'events/:id/navigation', to: 'events#user_navigation', as: 'user_navigation'
+  get 'events/:id/user_sign_in', to: 'events#user_sign_in', as: 'user_sign_in'
+  get 'events/:id/user_sign_out', to: 'events#user_sign_out', as: 'user_sign_out'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
