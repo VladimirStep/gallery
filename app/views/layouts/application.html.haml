@@ -11,6 +11,8 @@
     = render 'layouts/header'
     %main
       .container
-        %p.notice= notice
-        %p.alert= alert
+        - flash.each do |key, value|
+          - alert_class = ( key == 'notice' ) ? 'success' : 'danger'
+          = content_tag(:div, value, class: "alert alert-#{alert_class}")
+      
         = yield
