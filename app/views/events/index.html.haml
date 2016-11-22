@@ -8,7 +8,7 @@
       %tr
         %td= user.email
         %td= link_to 'navigation', user_navigation_path(user.id)
-        %td user sign in
-        %td user sign out
+        %td= link_to 'sign in', user_sign_in_path(user.id)
+        %td= link_to 'sign out', user_sign_out_path(user.id)
         %td= link_to 'likes', user_likes_path(user.id)
         %td= link_to 'comments', user_comments_path(user.id)

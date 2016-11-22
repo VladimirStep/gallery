@@ -1,0 +1,12 @@
+%h1.text-center
+  = @user.email
+  sign_ins
+%table.table
+  %thead
+    %th Date/time
+    %th Url
+  %tbody
+    - @actions.each do |action|
+      %tr
+        %td= action.created_at
+        %td= action.url
