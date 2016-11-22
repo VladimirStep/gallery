@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'pictures#index'
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions' }
 
   resources :categories, param: :category_name, only: [:index, :show] do
     get ':id', to: 'pictures#show', as: 'picture'
