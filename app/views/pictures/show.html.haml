@@ -1,6 +1,10 @@
-%img.img-responsive.center-block{src: "#{@picture.image.url}"}
-= render 'likes'
-%h4 COMMENTS
+.thumbnail
+  .image-holder-show.center-block
+    %img.img-responsive.center-block{src: "#{@picture.image.url}"}
+= render @like.empty? ? 'like_it' : 'dislike_it'
+%br
+%h4
+  = pluralize(@comments.count, 'comment').upcase
 = render 'form' if user_signed_in?
 - @comments.each do |comment|
   .media

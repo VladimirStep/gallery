@@ -19,3 +19,10 @@
 	width: 128px;
 	height: 128px;
 }
+
+.image-holder-show {
+	max-height: 500px;
+	.img-responsive {
+		max-height: 500px;
+	}
+}
