@@ -1,5 +1,8 @@
 %h1.text-center Categories
-%ul.nav.nav-pills.nav-justified
+.row
   - @categories.each do |category|
-    %li{role: 'presentation'}
-      = link_to category.category_name.capitalize, category_path(category.category_name)
+    %div.col-xs-6.col-sm-4.col-md-3
+      %a.thumbnail.text-center{href: "#{category_url(category.category_name)}"}
+        .image-holder.center-block
+          = image_tag category.pictures.first.image.thumb.url, class: 'img-responsive center-block img-circle'
+        %h4= category.category_name.upcase
