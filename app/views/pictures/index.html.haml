@@ -5,5 +5,8 @@
       %a.thumbnail{href: "#{category_picture_url(picture.category.category_name, picture)}"}
         .image-holder.center-block
           %img.img-responsive.center-block{src: "#{picture.image.thumb.url}"}
+        .caption.text-center
+          = image_tag 'heart.png'
+          %span.small= pluralize(picture.likes_count, 'like')
 %nav{'aria-label' => 'Page navigation', class: 'text-center'}
   = paginate @pictures

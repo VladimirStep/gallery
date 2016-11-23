@@ -1,4 +1,5 @@
 = form_for :like, url: likes_path do |f|
   = f.hidden_field :category_name, value: @category.category_name
   = f.hidden_field :picture_id, value: @picture.id
-  = f.submit 'Like', class: 'btn btn-primary'
+  %input{type: 'image', src: "#{asset_path 'like_empty.png'}", alt: 'Submit', width: '48', height: '48'}
+  %span= pluralize(@picture.likes.count, 'like')

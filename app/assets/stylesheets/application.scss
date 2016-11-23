@@ -18,11 +18,21 @@
 .image-holder {
 	width: 128px;
 	height: 128px;
+	display: flex;
+	img {
+		align-self: center;
+	}
 }
 
 .image-holder-show {
 	max-height: 500px;
 	.img-responsive {
 		max-height: 500px;
+	}
+}
+
+.caption {
+	img {
+		display: inline-block;
 	}
 }
