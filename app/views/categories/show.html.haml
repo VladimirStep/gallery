@@ -1,4 +1,5 @@
-%h1.text-center= @category.category_name.capitalize
+.page-header
+  %h1.text-center= @category.category_name.capitalize
 .row
   - @pictures.each do |picture|
     %div.col-xs-6.col-sm-4.col-md-3
