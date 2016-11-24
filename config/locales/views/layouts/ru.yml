@@ -1,3 +1,16 @@
 ru:
-  hello: "Привет мир"
   gallery: "Галерея"
+  layouts:
+    header:
+      gallery: "Gallery"
+      categories: "Категории"
+      pictures: "Картинки"
+      comments: "Комментарии"
+      events: "События"
+      account: "Кабинет"
+      profile: "Профиль"
+      sign_out: "Выйти"
+      sign_in: "Войти"
+      sign_up: "Регистрация"
+      en: "англ."
+      ru: "рус."
