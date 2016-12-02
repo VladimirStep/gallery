@@ -1,0 +1,33 @@
+ru:
+  events:
+    index:
+      events: "Действия"
+      user: "Пользователь"
+      actions: "Действия"
+      navigation: "навигация"
+      sign_in: "вход"
+      sign_out: "выход"
+      likes: "лайки"
+      comments: "комментарии"
+    user_comments:
+      comments: "комментарии"
+      date_time: "Дата/время"
+      picture: "Картинка"
+      comment: "Комментарий"
+    user_likes:
+      likes: "лайки"
+      date_time: "Дата/время"
+      picture: "Картинка"
+    user_navigation:
+      navigation: "навигация"
+      date_time: "Дата/время"
+      url: "Путь"
+    user_sign_in:
+      sign_ins: "входы"
+      date_time: "Дата/время"
+      url: "Путь"
+    user_sign_out:
+      sign_outs: "выходы"
+      date_time: "Дата/время"
+      url: "Путь"
+

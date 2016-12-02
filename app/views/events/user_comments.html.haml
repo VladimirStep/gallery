@@ -1,12 +1,12 @@
 .page-header
   %h1.text-center
     = @user.email
-    comments
+    = t('.comments')
 %table.table
   %thead
-    %th Date/time
-    %th Picture
-    %th Comment
+    %th= t('.date_time')
+    %th= t('.picture')
+    %th= t('.comment')
   %tbody
     - @comments.each do |comment|
       %tr

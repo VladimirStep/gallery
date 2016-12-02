@@ -1,17 +1,17 @@
 .page-header
-  %h1.text-center Events
+  %h1.text-center= t('.events')
 %table.table
   %thead
-    %th User
-    %th{colspan: '5'} Actions
+    %th= t('.user')
+    %th{colspan: '5'}= t('.actions')
   %tbody
     - @users.each do |user|
       %tr
         %td= user.email
-        %td= link_to 'navigation', user_navigation_path(user.id)
-        %td= link_to 'sign in', user_sign_in_path(user.id)
-        %td= link_to 'sign out', user_sign_out_path(user.id)
-        %td= link_to 'likes', user_likes_path(user.id)
-        %td= link_to 'comments', user_comments_path(user.id)
+        %td= link_to t('.navigation'), user_navigation_path(user.id)
+        %td= link_to t('.sign_in'), user_sign_in_path(user.id)
+        %td= link_to t('.sign_out'), user_sign_out_path(user.id)
+        %td= link_to t('.likes'), user_likes_path(user.id)
+        %td= link_to t('.comments'), user_comments_path(user.id)
 %nav{'aria-label' => 'Page navigation', class: 'text-center'}
   = paginate @users

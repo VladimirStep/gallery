@@ -1,0 +1,32 @@
+en:
+  events:
+    index:
+      events: "Events"
+      user: "User"
+      actions: "Actions"
+      navigation: "navigation"
+      sign_in: "sign in"
+      sign_out: "sign out"
+      likes: "likes"
+      comments: "comments"
+    user_comments:
+      comments: "comments"
+      date_time: "Date/time"
+      picture: "Picture"
+      comment: "Comment"
+    user_likes:
+      likes: "likes"
+      date_time: "Date/time"
+      picture: "Picture"
+    user_navigation:
+      navigation: "navigation"
+      date_time: "Date/time"
+      url: "Url"
+    user_sign_in:
+      sign_ins: "sign_ins"
+      date_time: "Date/time"
+      url: "Url"
+    user_sign_out:
+      sign_outs: "sign_outs"
+      date_time: "Date/time"
+      url: "Url"

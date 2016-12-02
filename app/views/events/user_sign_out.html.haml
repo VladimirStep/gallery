@@ -1,11 +1,11 @@
 .page-header
   %h1.text-center
     = @user.email
-    sign_ins
+    = t('.sign_outs')
 %table.table
   %thead
-    %th Date/time
-    %th Url
+    %th= t('.date_time')
+    %th= t('.url')
   %tbody
     - @actions.each do |action|
       %tr
