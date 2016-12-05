@@ -4,6 +4,6 @@ ru:
       new:
         log_in: "Войти"
         remember_me: "Запомнить меня"
-        email: "электронная почта"
-        password: "пароль"
+        email: "Email"
+        password: "Пароль"
         log_in: "Войти"

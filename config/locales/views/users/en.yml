@@ -4,6 +4,6 @@ en:
       new:
         log_in: "Log in"
         remember_me: "Remember me"
-        email: "email"
-        password: "password"
+        email: "Email"
+        password: "Password"
         log_in: "Log in"

@@ -1,4 +1,4 @@
-%h2.text-center Resend unlock instructions
+%h2.text-center= t('.resend_unlock_instructions')
 .row
   .col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
     = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
@@ -7,6 +7,6 @@
         = f.label :email
         = f.email_field :email, autofocus: true, class: 'form-control'
         %br
-        = f.submit "Resend unlock instructions", class: 'btn btn-primary'
+        = f.submit t('.resend_unlock_instructions'), class: 'btn btn-primary'
 
     = render "devise/shared/links"

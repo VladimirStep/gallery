@@ -35,6 +35,7 @@ gem 'haml-rails', '~> 0.9'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "mini_magick"
 gem 'devise'
+gem 'devise-i18n'
 gem 'kaminari'
 
 group :development, :test do
