@@ -4,10 +4,27 @@ ru:
       add_comment: "Добавить комментарий"
     index:
       pictures: "Картинки"
-      like: "лайк"
+      like:
+        few: "лайка"
+        many: "лайков"
+        one: "лайк"
+        other: "лайка"
     show:
-      comment: "комментарий"
+      comment:
+        few: "КОММЕНТАРИЯ"
+        many: "КОММЕНТАРИЕВ"
+        one: "КОММЕНТАРИЙ"
+        other: "КОММЕНТАРИЯ"
+      ago: "назад"
     like_it:
-      like: "лайк"
+      like:
+        few: "лайка"
+        many: "лайков"
+        one: "лайк"
+        other: "лайка"
     dislike_it:
-      like: "лайк"
+      like:
+        few: "лайка"
+        many: "лайков"
+        one: "лайк"
+        other: "лайка"

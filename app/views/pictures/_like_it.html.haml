@@ -2,5 +2,6 @@
   = f.hidden_field :category_name, value: @category.category_name
   = f.hidden_field :picture_id, value: @picture.id
   %input{type: 'image', src: "#{asset_path 'like_empty.png'}", alt: 'Submit', width: '48', height: '48'}
-  -# FIXME pluralize and upcase don't work in russian
-  %span= pluralize(@picture.likes.count, t('.like'))
+  %span
+    = @picture.likes.count
+    = t('.like', count: @picture.likes.count)

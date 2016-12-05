@@ -4,10 +4,19 @@ en:
       add_comment: "Add Comment"
     index:
       pictures: "Pictures"
-      like: "like"
+      like:
+        one: "like"
+        other: "likes"
     show:
-      comment: "comment"
+      comment:
+        one: "COMMENT"
+        other: "COMMENTS"
+      ago: "ago"
     like_it:
-      like: "like"
+      like:
+        one: "like"
+        other: "likes"
     dislike_it:
-      like: "like"
+      like:
+        one: "like"
+        other: "likes"

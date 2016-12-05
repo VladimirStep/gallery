@@ -16,8 +16,8 @@
 = render @like.empty? ? 'like_it' : 'dislike_it'
 %br
 %h4
-  -# FIXME pluralize and upcase don't work in russian
-  = pluralize(@comments.count, t('.comment')).upcase
+  = @comments.count
+  = t('.comment', count: @comments.count)
 = render 'form' if user_signed_in?
 - @comments.each do |comment|
   .media
@@ -26,7 +26,7 @@
         = comment.user.email
         %small
           = time_ago_in_words(comment.created_at)
-          ago
+          = t('.ago')
       %p= comment.body
 %nav{'aria-label' => 'Page navigation', class: 'text-center'}
   = paginate @comments
