@@ -1,0 +1,9 @@
+ru:
+  users:
+    sessions:
+      new:
+        log_in: "Войти"
+        remember_me: "Запомнить меня"
+        email: "электронная почта"
+        password: "пароль"
+        log_in: "Войти"

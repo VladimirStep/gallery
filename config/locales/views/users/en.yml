@@ -1,0 +1,9 @@
+en:
+  users:
+    sessions:
+      new:
+        log_in: "Log in"
+        remember_me: "Remember me"
+        email: "email"
+        password: "password"
+        log_in: "Log in"

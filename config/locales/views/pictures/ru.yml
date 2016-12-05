@@ -1,0 +1,13 @@
+ru:
+  pictures:
+    form:
+      add_comment: "Добавить комментарий"
+    index:
+      pictures: "Картинки"
+      like: "лайк"
+    show:
+      comment: "комментарий"
+    like_it:
+      like: "лайк"
+    dislike_it:
+      like: "лайк"

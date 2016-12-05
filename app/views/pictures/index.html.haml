@@ -1,5 +1,5 @@
 .page-header
-  %h1.text-center Pictures
+  %h1.text-center= t('.pictures')
 .row
   - @pictures.each do |picture|
     %div.col-xs-6.col-sm-4.col-md-3
@@ -8,6 +8,7 @@
           %img.img-responsive.center-block{src: "#{picture.image.thumb.url}"}
         .caption.text-center
           = image_tag 'heart.png'
-          %span.small= pluralize(picture.likes_count, 'like')
+          -# FIXME pluralize and upcase don't work in russian
+          %span.small= pluralize(picture.likes_count, t('.like'))
 %nav{'aria-label' => 'Page navigation', class: 'text-center'}
   = paginate @pictures

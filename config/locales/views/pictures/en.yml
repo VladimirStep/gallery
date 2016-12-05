@@ -1,0 +1,13 @@
+en:
+  pictures:
+    form:
+      add_comment: "Add Comment"
+    index:
+      pictures: "Pictures"
+      like: "like"
+    show:
+      comment: "comment"
+    like_it:
+      like: "like"
+    dislike_it:
+      like: "like"
