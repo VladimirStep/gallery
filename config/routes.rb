@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root to: 'pictures#index'
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, controllers: { sessions: 'users/sessions',
+                                    omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :categories, param: :category_name, only: [:index, :show] do
     get ':id', to: 'pictures#show', as: 'picture'
