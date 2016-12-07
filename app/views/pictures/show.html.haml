@@ -13,7 +13,8 @@
         %button.btn.btn-default{type: "button", 'data-dismiss' => "modal"}
           Close
 
-= render @like.empty? ? 'like_it' : 'dislike_it'
+#like-form
+  = render @like.empty? ? 'like_it' : 'dislike_it'
 %br
 %h4
   = @comments.count

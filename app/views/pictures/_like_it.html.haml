@@ -1,4 +1,4 @@
-= form_for :like, url: likes_path do |f|
+= form_for :like, url: likes_path, remote: true do |f|
   = f.hidden_field :category_name, value: @category.category_name
   = f.hidden_field :picture_id, value: @picture.id
   %input{type: 'image', src: "#{asset_path 'like_empty.png'}", alt: 'Submit', width: '48', height: '48'}
