@@ -13,8 +13,9 @@
         %button.btn.btn-default{type: "button", 'data-dismiss' => "modal"}
           Close
 
-#like-form
-  = render @like.nil? ? 'like_it' : 'dislike_it'
+- if user_signed_in?
+  #like-form
+    = render @like.nil? ? 'like_it' : 'dislike_it'
 %br
 %h4
   = @comments.count
