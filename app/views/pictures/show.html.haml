@@ -14,7 +14,7 @@
           Close
 
 #like-form
-  = render @like.empty? ? 'like_it' : 'dislike_it'
+  = render @like.nil? ? 'like_it' : 'dislike_it'
 %br
 %h4
   = @comments.count

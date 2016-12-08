@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   
   resources :comments, only: [:create, :index]
-  resources :likes, only: [:create, :destroy]
+  resources :likes, path: '/:picture_id/likes', only: [:create, :destroy]
   resources :events, only: [:index]
 
   get 'events/:id/comments', to: 'events#user_comments', as: 'user_comments'
