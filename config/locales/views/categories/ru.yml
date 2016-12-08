@@ -2,3 +2,7 @@ ru:
   categories:
     index:
       categories: "Категории"
+    subscribe:
+      subscribe: "Подписаться"
+    unsubscribe:
+      unsubscribe: "Отписаться"

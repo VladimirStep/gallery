@@ -1,0 +1,4 @@
+= form_for :subscription, url: subscription_path(@category, @subscription), method: 'delete', remote: true do |f|
+  .form-group
+    %br
+    = f.submit t('.unsubscribe'), class: 'btn btn-default'

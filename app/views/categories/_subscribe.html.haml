@@ -1,0 +1,4 @@
+= form_for :subscription, url: subscriptions_path(@category), remote: true do |f|
+  .form-group
+    %br
+    = f.submit t('.subscribe'), class: 'btn btn-primary'

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :index]
   resources :likes, path: '/:picture_id/likes', only: [:create, :destroy]
   resources :events, only: [:index]
+  resources :subscriptions, path: '/:category_id/subscriptions', only: [:create, :destroy]
 
   get 'events/:id/comments', to: 'events#user_comments', as: 'user_comments'
   get 'events/:id/likes', to: 'events#user_likes', as: 'user_likes'

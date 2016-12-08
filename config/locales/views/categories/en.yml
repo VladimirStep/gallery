@@ -2,3 +2,7 @@ en:
   categories:
     index:
       categories: "Categories"
+    subscribe:
+      subscribe: "Subscribe"
+    unsubscribe:
+      unsubscribe: "Unsubscribe"

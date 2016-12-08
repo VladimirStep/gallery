@@ -1,5 +1,7 @@
 .page-header
   %h1.text-center= @category.category_name.capitalize
+  #subscribe-form.text-center
+    = render @subscription.nil? ? 'subscribe' : 'unsubscribe'
 .row
   - @pictures.each do |picture|
     %div.col-xs-6.col-sm-4.col-md-3
