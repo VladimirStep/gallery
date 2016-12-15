@@ -6,6 +6,5 @@
     %p
       We are glad to inform You, that we've added the new picture.
       You can see it here:
-      %a{href: @url}
-        = @url
+      = link_to 'click', category_picture_url(@picture.category.category_name, @picture.id)
     %p Thanks for watching and have a great day!
