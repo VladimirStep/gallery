@@ -12,7 +12,22 @@ ActiveAdmin.register Picture do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+
   filter :category_category_name, as: :select, collection: -> { Category.all.map { |c| c.category_name } }, label: 'Category name'
   filter :created_at
   filter :updated_at
+
+  index as: :grid, columns: 4 do |picture|
+    div link_to image_tag(picture.image.thumb.url), admin_picture_path(picture)
+    p resource_selection_cell picture
+  end
+
+  index do
+    selectable_column
+    id_column
+    column :image
+    column :created_at
+    column :updated_at
+    actions
+  end
 end
