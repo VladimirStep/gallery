@@ -358,6 +358,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.0.5)
   mini_magick
+  nokogiri
   omniauth-facebook
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
