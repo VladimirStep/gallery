@@ -8,6 +8,18 @@ GIT
       railties (>= 3.2, < 5.1)
       responders
 
+GIT
+  remote: git://github.com/sinatra/sinatra.git
+  revision: 9f4100a769bc62a8087a12511f26ea895e5e09c5
+  specs:
+    rack-protection (2.0.0.beta2)
+      rack
+    sinatra (2.0.0.beta2)
+      mustermann (= 1.0.0.beta2)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0.beta2)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -177,6 +189,7 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    mustermann (1.0.0.beta2)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -283,8 +296,6 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     sexp_processor (4.7.0)
-    sinatra (1.0)
-      rack (>= 1.0)
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -357,6 +368,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
+  sinatra!
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
