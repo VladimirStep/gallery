@@ -12,6 +12,7 @@ ActiveAdmin.register Picture do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
-
+  filter :category_category_name, as: :select, collection: -> { Category.all.map { |c| c.category_name } }, label: 'Category name'
+  filter :created_at
+  filter :updated_at
 end
