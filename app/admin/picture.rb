@@ -13,13 +13,13 @@ ActiveAdmin.register Picture do
 #   permitted
 # end
 
-  filter :category_category_name, as: :select, collection: -> { Category.all.map { |c| c.category_name } }, label: 'Category name'
+  filter :category_category_name, as: :select, collection: -> { Category.all.map { |c| c.category_name } }, label: 'Category'
   filter :created_at
   filter :updated_at
 
   index as: :grid, columns: 4 do |picture|
     div link_to image_tag(picture.image.thumb.url), admin_picture_path(picture)
-    p resource_selection_cell picture
+    resource_selection_cell picture
   end
 
   index do
