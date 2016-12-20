@@ -17,7 +17,7 @@ task :pictures, [:path] => :environment do |task, args|
           if cat.save
             files = Rake::FileList.new("#{dir}/*")
             files.each do |file|
-              pic = cat.pictures.new(picture_name: file, image: File.open(file.to_s))
+              pic = cat.pictures.new(image: File.open(file.to_s))
               pic.save!
             end
           end
