@@ -15,9 +15,9 @@ task :pictures, [:path] => :environment do |task, args|
         if Dir.exist?(dir)
           cat = Category.new(category_name: dir.to_s)
           if cat.save
-            files = Rake::FileList.new("#{dir}/*")
+            files = Rake::FileList.new("#{dir.to_s}/*")
             files.each do |file|
-              pic = cat.pictures.new(picture_name: file, image: File.open(file.to_s))
+              pic = cat.pictures.new(image: File.open(file.to_s))
               pic.save!
             end
           end
