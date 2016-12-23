@@ -13,6 +13,22 @@ ActiveAdmin.register Picture do
 #   permitted
 # end
 
+  sidebar :parsing do
+    form action: parsing_admin_pictures_path, method: :post do
+      form_for :site do |f|
+        f.label :url, 'Site Url'
+        f.text_field :url
+        br
+        br
+        f.submit 'Parse'
+      end
+    end
+  end
+
+  collection_action :parsing, method: :post do
+    @url = params[:site][:url]
+  end
+
   filter :category_category_name, as: :select, collection: -> { Category.all.map { |c| c.category_name } }, label: 'Category'
   filter :created_at
   filter :updated_at
