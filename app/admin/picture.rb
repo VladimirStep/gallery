@@ -32,16 +32,17 @@ ActiveAdmin.register Picture do
     doc.css('img').each do |image|
       @images.push(image['src'])
     end
+    @@pass = @images
   end
 
   collection_action :load_pictures, method: :post do
-
-  end
-
-  controller do
-    def index
-      super
+    @images = @@pass
+    params[:picture][:url].each do |index, status|
+      if status == '1'
+        Picture.create!(category_id: params[:picture][:category].to_i, remote_image_url: @images[index.to_i].to_s)
+      end
     end
+    redirect_to admin_pictures_path
   end
 
   filter :category_category_name, as: :select, collection: -> { Category.all.map { |c| c.category_name } }, label: 'Category'
