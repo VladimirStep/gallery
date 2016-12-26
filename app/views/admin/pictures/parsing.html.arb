@@ -1,1 +1,16 @@
-text_node assigns[:images]
+form action: load_pictures_admin_pictures_path, method: :post do
+  form_for :picture do |f|
+    f.submit 'Load Selected Pictures'
+    br
+    br
+    f.label :category, 'Load to Category: '
+    f.collection_select(:category, Category.all, :id, :category_name)
+    br
+    br
+    assigns[:images].each_index do |key|
+      div image_tag(assigns[:images][key])
+      f.check_box key
+    end
+  end
+end
+

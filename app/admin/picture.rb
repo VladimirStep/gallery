@@ -26,9 +26,22 @@ ActiveAdmin.register Picture do
   end
 
   collection_action :parsing, method: :post do
+    @images = []
     url = params[:site][:url]
     doc = Nokogiri::HTML(open(url))
-    @images = doc.css('a img')
+    doc.css('img').each do |image|
+      @images.push(image['src'])
+    end
+  end
+
+  collection_action :load_pictures, method: :post do
+
+  end
+
+  controller do
+    def index
+      super
+    end
   end
 
   filter :category_category_name, as: :select, collection: -> { Category.all.map { |c| c.category_name } }, label: 'Category'
