@@ -1,16 +1,21 @@
 form action: load_pictures_admin_pictures_path, method: :post do
   form_for :picture do |f|
-    f.submit 'Load Selected Pictures'
+    div style: 'width: 50%; float: left' do
+      f.submit 'Load Selected Pictures'
+    end
+    div style: 'width: 50%; float: left' do
+      f.label :category, 'Load to Category: '
+      f.collection_select(:category, Category.all, :id, :category_name)
+    end
     br
-    br
-    f.label :category, 'Load to Category: '
-    f.collection_select(:category, Category.all, :id, :category_name)
     br
     br
     fields_for :url do |u|
       assigns[:images].each_index do |key|
-        div image_tag(assigns[:images][key])
-        div u.check_box key
+        div style: 'width: 25%; float: left; margin: 5px 0' do
+          div image_tag(assigns[:images][key], width: '150px')
+          div u.check_box key
+        end
       end
     end
   end

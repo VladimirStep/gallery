@@ -13,7 +13,7 @@ ActiveAdmin.register Picture do
 #   permitted
 # end
 
-  sidebar :parsing do
+  sidebar :parsing, priority: 1 do
     form action: parsing_admin_pictures_path, method: :post do
       form_for :site do |f|
         f.label :url, 'Site Url'
