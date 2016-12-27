@@ -111,6 +111,7 @@ GEM
       execjs
     coffee-script-source (1.11.1)
     concurrent-ruby (1.0.2)
+    curb (0.9.3)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -345,6 +346,7 @@ DEPENDENCIES
   capybara
   carrierwave (>= 1.0.0.rc, < 2.0)
   coffee-rails (~> 4.2)
+  curb
   devise
   devise-i18n
   dotenv-rails

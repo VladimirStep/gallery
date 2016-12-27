@@ -1,3 +1,5 @@
+require 'curb'
+
 ActiveAdmin.register Picture do
   menu priority: 2
 # See permitted parameters documentation:
@@ -28,7 +30,8 @@ ActiveAdmin.register Picture do
   collection_action :parsing, method: :post do
     @images = []
     url = params[:site][:url]
-    doc = Nokogiri::HTML(open(url))
+    http = Curl.get(url)
+    doc = Nokogiri::HTML(http.body_str)
     doc.css('img').each do |image|
       @images.push(image['src'])
     end

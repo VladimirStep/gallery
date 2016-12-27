@@ -72,3 +72,4 @@ gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'resque'
 gem 'sinatra', github: 'sinatra', require: false
 gem 'nokogiri'
+gem 'curb'
