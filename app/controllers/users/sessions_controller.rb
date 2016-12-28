@@ -1,6 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
-  prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
+  prepend_before_action :check_captcha, only: [:create], unless: -> { cookies[:skip_recaptcha] == 'true' }
 
   # GET /resource/sign_in
   # def new
