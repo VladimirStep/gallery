@@ -1,0 +1,2 @@
+$('#comments-counter').html("<%= escape_javascript("#{@comments_counter} #{t('.comment', count: @comments_counter)}") %>")
+$('.comments-list').html("<%= escape_javascript(render partial: 'comment', collection: @comments) %>")

@@ -3,3 +3,11 @@ ru:
     index:
       comments: "Комментарии"
       ago: "назад"
+    create:
+      comment:
+        few: "КОММЕНТАРИЯ"
+        many: "КОММЕНТАРИЕВ"
+        one: "КОММЕНТАРИЙ"
+        other: "КОММЕНТАРИЯ"
+    comment:
+      ago: "назад"

@@ -3,3 +3,9 @@ en:
     index:
       comments: "Comments"
       ago: "ago"
+    create:
+      comment:
+        one: "COMMENT"
+        other: "COMMENTS"
+    comment:
+      ago: "ago"

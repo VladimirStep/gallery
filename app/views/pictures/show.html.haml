@@ -17,18 +17,11 @@
   #like-form
     = render @like.nil? ? 'like_it' : 'dislike_it'
 %br
-%h4
-  = @comments.count
-  = t('.comment', count: @comments.count)
+%h4#comments-counter
+  = @comments_counter
+  = t('.comment', count: @comments_counter)
 = render 'form' if user_signed_in?
-- @comments.each do |comment|
-  .media
-    .media-body
-      %h5.media-heading
-        = comment.user.email
-        %small
-          = time_ago_in_words(comment.created_at)
-          = t('.ago')
-      %p= comment.body
+.comments-list
+  = render @comments
 %nav{'aria-label' => 'Page navigation', class: 'text-center'}
   = paginate @comments

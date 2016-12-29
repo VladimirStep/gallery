@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     get ':id', to: 'pictures#show', as: 'picture'
   end
   
-  resources :comments, only: [:create, :index]
+  resources :comments, only: [:index]
+  post '/:picture_id/comments', to: 'comments#create', as: 'create_comment'
   resources :likes, path: '/:picture_id/likes', only: [:create, :destroy]
   resources :events, only: [:index]
   resources :subscriptions, path: '/:category_id/subscriptions', only: [:create, :destroy]

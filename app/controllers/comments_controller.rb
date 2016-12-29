@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: :create
+  before_action :find_picture, only: :create
 
   def index
     @comments = Comment.all.order(created_at: :desc).page(params[:page]).per(10)
@@ -7,20 +8,17 @@ class CommentsController < ApplicationController
 
   def create
     current_user.comments.create!(comment_params)
-    redirect_to category_picture_path(category_param[:category_name], picture_param[:picture_id])
+    @comments = @picture.comments.order(created_at: :desc).page(params[:page]).per(5)
+    @comments_counter = @picture.comments.count
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :picture_id)
+    params.require(:comment).permit(:body).merge(picture_id: params[:picture_id])
   end
 
-  def category_param
-    params.require(:comment).permit(:category_name)
-  end
-
-  def picture_param
-    params.require(:comment).permit(:picture_id)
+  def find_picture
+    @picture = Picture.find(params[:picture_id])
   end
 end
