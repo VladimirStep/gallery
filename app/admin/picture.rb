@@ -48,7 +48,7 @@ ActiveAdmin.register Picture do
       http = Curl.get(url)
       doc = Nokogiri::HTML(http.body_str)
       doc.css('img').each do |image|
-        @images.push(image['src'])
+        @images.push(image['src']) if /^http/.match(image['src'])
       end
       @@pass = @images
       render 'parsing_post'
