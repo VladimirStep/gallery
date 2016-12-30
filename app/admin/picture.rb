@@ -15,7 +15,7 @@ ActiveAdmin.register Picture do
 #   permitted
 # end
 
-  sidebar :parsing, priority: 1 do
+  sidebar :url_parsing, priority: 1 do
     form action: parsing_admin_pictures_path, method: :post do
       form_for :site do |f|
         f.label :url, 'Site Url'
@@ -27,15 +27,36 @@ ActiveAdmin.register Picture do
     end
   end
 
-  collection_action :parsing, method: :post do
-    @images = []
-    url = params[:site][:url]
-    http = Curl.get(url)
-    doc = Nokogiri::HTML(http.body_str)
-    doc.css('img').each do |image|
-      @images.push(image['src'])
+  sidebar :collection_for_parsing, priority: 2 do
+    form action: parsing_admin_pictures_path, method: :post do
+      form_for :site do |f|
+        f.label :url, 'Site Name'
+        f.collection_select(:url, Site.all, :address, :name)
+        br
+        br
+        f.submit 'Parse'
+      end
     end
-    @@pass = @images
+  end
+
+  collection_action :parsing, method: [:get, :post] do
+    if request.get?
+      render 'parsing_get'
+    else
+      @images = []
+      url = params[:site][:url]
+      http = Curl.get(url)
+      doc = Nokogiri::HTML(http.body_str)
+      doc.css('img').each do |image|
+        @images.push(image['src'])
+      end
+      @@pass = @images
+      render 'parsing_post'
+    end
+  end
+
+  action_item :parsing do
+    link_to 'Parsing', parsing_admin_pictures_path, method: :get
   end
 
   collection_action :load_pictures, method: :post do

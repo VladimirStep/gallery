@@ -1,0 +1,8 @@
+h2 'You can parse new images here'
+div do
+  h4'Choose your parsing method on the right sidebar:'
+  ul do
+    li 'Provide site url you want to parse in the internet'
+    li 'Select sites from our collection'
+  end
+end

@@ -4,7 +4,7 @@ form action: load_pictures_admin_pictures_path, method: :post do
       f.submit 'Load Selected Pictures'
     end
     div style: 'width: 50%; float: left' do
-      f.label :category, 'Load to Category: '
+      f.label :category, 'Select Category for loading: '
       f.collection_select(:category, Category.all, :id, :category_name)
     end
     br
