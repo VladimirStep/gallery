@@ -1,6 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
-  prepend_before_action :check_captcha, only: [:create], unless: -> { cookies[:skip_recaptcha].to_i < 4 }
+  prepend_before_action :check_captcha, only: [:create], if: -> { cookies[:skip_recaptcha].to_i > 3 }
+  prepend_before_action :show_captcha
+  prepend_before_action :set_recaptcha_cookie
 
   # GET /resource/sign_in
   # def new
@@ -42,5 +44,13 @@ class Users::SessionsController < Devise::SessionsController
       self.resource = resource_class.new sign_in_params
       respond_with_navigational(resource) { render :new }
     end
+  end
+
+  def show_captcha
+    @show_captcha = cookies[:skip_recaptcha].to_i >= 3 ? true : false
+  end
+
+  def set_recaptcha_cookie
+    cookies[:skip_recaptcha] ||= { value: '0', path: '/users/sign_in' }
   end
 end

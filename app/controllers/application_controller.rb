@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :track_user
-  before_action :set_recaptcha_cookie
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -20,9 +19,5 @@ class ApplicationController < ActionController::Base
 
   def track_user
     Event.create!(url: env["REQUEST_PATH"], user_id: current_user.id) if user_signed_in?
-  end
-
-  def set_recaptcha_cookie
-    cookies[:skip_recaptcha] ||= { value: '0', path: '/users/sign_in' }
   end
 end
