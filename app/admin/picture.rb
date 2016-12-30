@@ -15,7 +15,7 @@ ActiveAdmin.register Picture do
 #   permitted
 # end
 
-  sidebar :url_parsing, priority: 1 do
+  sidebar :url_parsing, only: [:parsing], priority: 1 do
     form action: parsing_admin_pictures_path, method: :post do
       form_for :site do |f|
         f.label :url, 'Site Url'
@@ -27,7 +27,7 @@ ActiveAdmin.register Picture do
     end
   end
 
-  sidebar :collection_for_parsing, priority: 2 do
+  sidebar :collection_for_parsing, only: [:parsing], priority: 2 do
     form action: parsing_admin_pictures_path, method: :post do
       form_for :site do |f|
         f.label :url, 'Site Name'
@@ -55,8 +55,12 @@ ActiveAdmin.register Picture do
     end
   end
 
-  action_item :parsing do
+  action_item :parsing, only: [:index] do
     link_to 'Parsing', parsing_admin_pictures_path, method: :get
+  end
+
+  action_item :pictures, only: [:parsing] do
+    link_to 'Pictures', admin_pictures_path, method: :get
   end
 
   collection_action :load_pictures, method: :post do
