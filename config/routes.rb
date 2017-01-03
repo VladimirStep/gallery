@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :events, only: [:index]
   resources :subscriptions, path: '/:category_id/subscriptions', only: [:create, :destroy]
 
+  resources :chat_rooms, only: [:new, :create, :index, :show]
+
   get 'events/:id/comments', to: 'events#user_comments', as: 'user_comments'
   get 'events/:id/likes', to: 'events#user_likes', as: 'user_likes'
   get 'events/:id/navigation', to: 'events#user_navigation', as: 'user_navigation'
