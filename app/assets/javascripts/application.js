@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require jquery.cookie.js
+//= require cable
 //= require_tree .
