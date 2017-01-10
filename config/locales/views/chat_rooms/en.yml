@@ -1,0 +1,13 @@
+en:
+  chat_rooms:
+    index:
+      chat_rooms: "ChatRooms"
+      new_chat_room: "New chat room"
+    new:
+      add_new_chat: "Add chat room"
+      label_title: "Title"
+      add: "Add"
+    show:
+      body: "Your message"
+      post: "Post"
+      notes: "From 2 to 1000 characters"

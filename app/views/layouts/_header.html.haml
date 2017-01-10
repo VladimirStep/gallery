@@ -20,6 +20,8 @@
             = link_to t('.events'), events_path
           - if user_signed_in?
             %li
+              = link_to t('.chat_rooms'), chat_rooms_path
+            %li
               %p.navbar-text
                 = current_user.email
             %li.dropdown

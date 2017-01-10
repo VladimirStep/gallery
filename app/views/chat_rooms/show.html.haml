@@ -1,10 +1,14 @@
-%h1= @chat_room.title
-#messages{'data-chat-room-id' => "#{@chat_room.id}"}
-  = render @chat_room.messages
+.page-header
+  %h1.text-center= @chat_room.title
 
-= form_for @message, url: '#' do |f|
-  .form-group
-    = f.label :body
-    = f.text_area :body, class: 'form-control'
-    %small.text-muted From 2 to 1000 characters
-  = f.submit 'Post', class: 'btn btn-primary btn-lg'
+.row
+  .col-xs-12.col-sm-10.col-sm-offset-1.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
+    #messages{'data-chat-room-id' => "#{@chat_room.id}"}
+      = render @chat_room.messages
+
+    = form_for @message, url: '#' do |f|
+      .form-group
+        = f.label :body, t('.body')
+        = f.text_area :body, class: 'form-control'
+        %small.text-muted= t('.notes')
+      = f.submit t('.post'), class: 'btn btn-primary btn-lg'

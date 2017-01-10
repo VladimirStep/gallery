@@ -1,0 +1,13 @@
+ru:
+  chat_rooms:
+    index:
+      chat_rooms: "Чаты"
+      new_chat_room: "Новый чат"
+    new:
+      add_new_chat: "Добавить чат"
+      label_title: "Название"
+      add: "Добавить"
+    show:
+      body: "Ваше сообщение"
+      post: "Отправить"
+      notes: "От 2 до 1000 символов"
