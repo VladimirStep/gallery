@@ -2,12 +2,11 @@ require 'rails_helper'
 
 describe Picture do
   before do
-    @picture = Picture.new(picture_name: "cool girl")
+    @picture = Picture.new()
   end
 
   subject { @picture }
 
-  it { should respond_to :picture_name }
   it { should respond_to :image }
 
   it { should be_valid }
