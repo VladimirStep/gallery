@@ -29,13 +29,13 @@ RSpec.describe Comment, type: :model do
   end
 
   describe 'when user reference is not present' do
-    before { @comment.user_id = nil }
+    before { @comment.user = nil }
 
     it { should_not be_valid }
   end
 
   describe 'when picture reference is not present' do
-    before { @comment.picture_id = nil }
+    before { @comment.picture = nil }
 
     it { should_not be_valid }
   end

@@ -16,7 +16,7 @@ RSpec.describe ChatRoom, type: :model do
   end
 
   describe 'when user reference is not present' do
-    before { @chat_room.user_id = nil }
+    before { @chat_room.user = nil }
 
     it { should_not be_valid }
   end

@@ -45,7 +45,7 @@ RSpec.describe Picture, type: :model do
   end
 
   describe 'when category reference is not present' do
-    before { @picture.category_id = nil }
+    before { @picture.category = nil }
 
     it { should_not be_valid }
   end

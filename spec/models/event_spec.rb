@@ -17,7 +17,7 @@ RSpec.describe Event, type: :model do
   end
 
   describe 'when user reference is not present' do
-    before { @event.user_id = nil }
+    before { @event.user = nil }
 
     it { should_not be_valid }
   end
