@@ -4,6 +4,8 @@ class Picture < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  validates :category, presence: true
+
   after_save :send_email_to_subscribers
 
   def send_email_to_subscribers

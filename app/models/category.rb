@@ -4,9 +4,9 @@ class Category < ApplicationRecord
   has_many :users, through: :subscriptions
 
   validates :category_name, presence: true,
-                            length: { maximum: 20 },
-                            uniqueness: true
+                            length: { minimum: 2, maximum: 20 },
+                            uniqueness: { case_sensitive: false }
   validates_associated :pictures
 
-  # TODO To lower all categories name
+  before_save { self.category_name = category_name.downcase }
 end

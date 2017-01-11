@@ -1,0 +1,22 @@
+module ApplicationHelper
+  def javascript_exists?(script)
+    script = "#{Rails.root}/app/assets/javascripts/#{script}.js"
+    extensions = %w(.coffee .erb .coffee.erb) + ['']
+    extensions.inject(false) do |truth, extension|
+      truth || File.exists?("#{script}#{extension}")
+    end
+  end
+
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
+
+  def meta_description(page_text)
+    content_for(:meta_description) { page_text }
+  end
+
+  def cents_to_string(amount)
+    return '0.00' if amount.nil? or amount.zero?
+    amount.to_s.insert(-3, '.')
+  end
+end
