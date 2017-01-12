@@ -64,4 +64,9 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.include CarrierWave::Test::Matchers
+  config.after(:all) do
+    if Rails.env.test?
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    end
+  end
 end

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Picture, type: :model do
   before do
     ImageUploader.enable_processing = true
-    @picture = build(:picture)
+    @picture = create(:picture)
   end
 
   after do
