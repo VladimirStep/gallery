@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe AdminUser, type: :model do
-  before { @amin_user = build(:admin_user) }
+  before { @admin_user = build(:admin_user) }
 
-  subject { @amin_user }
+  subject { @admin_user }
 
   it { should respond_to(:email) }
   it { should respond_to(:password) }
@@ -20,19 +20,19 @@ RSpec.describe AdminUser, type: :model do
   it { should be_valid }
 
   describe 'when email is not present' do
-    before { @amin_user.email = ' ' }
+    before { @admin_user.email = ' ' }
 
     it { should_not be_valid }
   end
 
   describe 'when password is not present' do
-    before { @amin_user.password = ' ' }
+    before { @admin_user.password = ' ' }
 
     it { should_not be_valid }
   end
 
   describe 'when password confirmation does not match password' do
-    before { @amin_user.password_confirmation = 'mismatch' }
+    before { @admin_user.password_confirmation = 'mismatch' }
 
     it { should_not be_valid }
   end
@@ -42,8 +42,8 @@ RSpec.describe AdminUser, type: :model do
       addresses = %w[user@foo,com user_at_foo.org example.user@foo.
                      foo@bar_baz.com foo@bar+baz.com]
       addresses.each do |invalid_address|
-        @amin_user.email = invalid_address
-        expect(@amin_user).not_to be_valid
+        @admin_user.email = invalid_address
+        expect(@admin_user).not_to be_valid
       end
     end
   end
@@ -52,18 +52,30 @@ RSpec.describe AdminUser, type: :model do
     it  do
       addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
       addresses.each do |valid_address|
-        @amin_user.email = valid_address
-        expect(@amin_user).to be_valid
+        @admin_user.email = valid_address
+        expect(@admin_user).to be_valid
       end
     end
   end
 
   describe 'when email address is already taken' do
     before do
-      user_with_same_email = @amin_user.dup
-      user_with_same_email.email = @amin_user.email.upcase
+      user_with_same_email = @admin_user.dup
+      user_with_same_email.email = @admin_user.email.upcase
       user_with_same_email.save
     end
+
+    it { should_not be_valid }
+  end
+
+  describe 'when password is too long' do
+    before { @admin_user.password = 'a' * 129 }
+
+    it { should_not be_valid }
+  end
+
+  describe 'when password is too short' do
+    before { @admin_user.password = 'a' * 5 }
 
     it { should_not be_valid }
   end

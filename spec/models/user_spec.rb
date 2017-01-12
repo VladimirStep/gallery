@@ -69,4 +69,16 @@ RSpec.describe User, type: :model do
 
     it { should_not be_valid }
   end
+
+  describe 'when password is too long' do
+    before { @user.password = 'a' * 129 }
+
+    it { should_not be_valid }
+  end
+
+  describe 'when password is too short' do
+    before { @user.password = 'a' * 5 }
+
+    it { should_not be_valid }
+  end
 end
