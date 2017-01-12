@@ -34,16 +34,22 @@ RSpec.describe Site, type: :model do
   end
 
   describe 'when address is too long' do
-    before { @site.address = 'a' * 151 }
+    before { @site.address = 'a' * 254 }
 
     it { should_not be_valid }
   end
 
-  # describe 'when address is too short' do
-  #   before { @site.address = 'a' }
-  #
-  #   it { should_not be_valid }
-  # end
+  describe 'when address is not correct' do
+    before { @site.address = 'asdf' }
+
+    it { should_not be_valid }
+  end
+
+  describe 'when address is correct' do
+    before { @site.address = 'http://google.com' }
+
+    it { should be_valid }
+  end
 
   describe 'when site name is already taken' do
     before do
