@@ -74,7 +74,7 @@ RSpec.describe ChatRoomsController, type: :controller do
 
   describe 'POST #create' do
     context 'when user logged in' do
-      it 'returns http success' do
+      it 'creates new chat room and redirects to chat room index page' do
         sign_in @user
         request.headers['REQUEST_PATH'] = chat_rooms_path
         expect do
@@ -83,6 +83,17 @@ RSpec.describe ChatRoomsController, type: :controller do
         expect(response.status).to eq 302
         expect(response.content_type).to eq 'text/html'
         expect(response).to redirect_to(chat_rooms_path)
+      end
+    end
+
+    context 'when user does not logged in' do
+      it 'does not create new chat room' do
+        expect do
+          post :create, params: { chat_room: { title: 'Test room' }, user_id: @user.id }
+        end.not_to change(@user.chat_rooms, :count)
+        expect(response.status).to eq 302
+        expect(response.content_type).to eq 'text/html'
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
