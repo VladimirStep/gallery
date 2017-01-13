@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def track_user
-    Event.create!(url: env["REQUEST_PATH"], user_id: current_user.id) if user_signed_in?
+    Event.create!(url: request.env['REQUEST_PATH'], user_id: current_user.id) if user_signed_in?
   end
 end
