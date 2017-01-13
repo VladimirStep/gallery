@@ -8,9 +8,8 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
-  # OPTIMIZE Take locale params from routes
-  def default_url_options
-    { locale: I18n.locale }
+  def self.default_url_options(options={})
+    options.merge({ :locale => I18n.locale })
   end
 
   def after_sign_in_path_for(resource)
