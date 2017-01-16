@@ -1,6 +1,10 @@
 FactoryGirl.define do
+  sequence :url do |n|
+    "/path/#{n}"
+  end
+
   factory :event do
-    url '/path'
+    url
     user
   end
 end
