@@ -32,8 +32,9 @@ RSpec.describe LikesController, type: :controller do
 
   describe 'DELETE #destroy' do
     context 'when user logged in' do
+      before { @like = create(:like, picture: @picture, user: @user) }
+
       it 'deletes like' do
-        @like = create(:like, picture: @picture, user: @user)
         sign_in @user
         request.headers['REQUEST_PATH'] = like_path(@picture, @like)
         expect do
@@ -45,8 +46,9 @@ RSpec.describe LikesController, type: :controller do
     end
 
     context 'when user is not logged in' do
+      before { @like = create(:like, picture: @picture, user: @user) }
+
       it 'does not delete like' do
-        @like = create(:like, picture: @picture, user: @user)
         expect do
           delete :destroy, xhr: true, params: { picture_id: @picture.id, id: @like.id }
         end.not_to change(@picture.likes, :count)
