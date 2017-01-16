@@ -5,5 +5,5 @@
     %div.col-xs-6.col-sm-4.col-md-3
       %a.thumbnail.text-center{href: "#{category_url(category.category_name)}"}
         .image-holder.center-block
-          = image_tag category.pictures.first.image.thumb.url, class: 'img-responsive center-block img-circle'
+          = image_tag category.pictures.first.image.thumb.url, class: 'img-responsive center-block img-circle' if category.pictures.any?
         %h4= category.category_name.upcase
