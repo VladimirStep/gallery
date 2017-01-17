@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Category pages', :type => :request do
+describe 'Category pages', :type => :feature do
   subject { page }
 
   before do
@@ -14,6 +14,7 @@ describe 'Category pages', :type => :request do
   let(:other_category_picture) { create(:picture,
                                         category_id: @categories.last.id,
                                         image: File.open(Rails.root.join('spec', 'fixtures', 'test1.jpg'))) }
+  let(:user) { create(:user) }
 
   describe 'index page' do
     before { visit categories_path }
@@ -34,6 +35,24 @@ describe 'Category pages', :type => :request do
     it { should have_css("img[src*='test.jpg']") }
     it { should_not have_css("img[src*='test1.jpg']") }
     it { should have_content('0 likes') }
+
+    context 'when user logged in' do
+
+      it 'should have form for subscribe to category', js: true do
+        sign_in user
+        # request.headers['REQUEST_PATH'] = category_path(@categories.first.category_name)
+        visit category_path(@categories.first.category_name)
+        p
+        p '='*100
+        p page.html
+        p user
+        expect(page).to have_css('div#subscribe-form')
+      end
+    end
+
+    context 'when user is not logged in' do
+
+    end
   end
 
 end
