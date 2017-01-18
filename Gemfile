@@ -38,7 +38,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'selenium-webdriver', '2.53.4'
+  gem 'selenium-webdriver'
   gem 'capybara'
   gem 'factory_girl_rails'
 end

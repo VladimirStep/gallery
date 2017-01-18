@@ -10,6 +10,7 @@ describe 'Category pages', :type => :feature do
     ]
   end
 
+  let(:category) { @categories.first }
   let(:picture) { create(:picture, category_id: @categories.first.id) }
   let(:other_category_picture) { create(:picture,
                                         category_id: @categories.last.id,
@@ -26,9 +27,10 @@ describe 'Category pages', :type => :feature do
 
   describe 'show page' do
     before do
+      category.reload
       picture.reload
       other_category_picture.reload
-      visit category_path(@categories.first.category_name)
+      visit category_path(category.category_name)
     end
 
     it { should have_content('Ruby') }
@@ -37,22 +39,20 @@ describe 'Category pages', :type => :feature do
     it { should have_content('0 likes') }
 
     context 'when user logged in' do
-
-      it 'should have form for subscribe to category', js: true do
+      it 'should have form for subscribe to category' do
         sign_in user
-        # request.headers['REQUEST_PATH'] = category_path(@categories.first.category_name)
-        visit category_path(@categories.first.category_name)
-        p
-        p '='*100
-        p page.html
-        p user
+        page.driver.options[:headers] ||= {}
+        page.driver.options[:headers]['REQUEST_PATH'] = category_path(category.category_name)
+        visit category_path(category.category_name)
         expect(page).to have_css('div#subscribe-form')
       end
     end
 
     context 'when user is not logged in' do
-
+      it 'should not have form for subscribe to category' do
+        visit category_path(category.category_name)
+        expect(page).not_to have_css('div#subscribe-form')
+      end
     end
   end
-
 end
