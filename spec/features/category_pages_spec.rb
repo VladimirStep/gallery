@@ -55,4 +55,28 @@ describe 'Category pages', :type => :feature do
       end
     end
   end
+
+  describe 'subscription to category' do
+    before do
+      ImageUploader.enable_processing = true
+      category.reload
+      picture.reload
+    end
+
+    after do
+      ImageUploader.enable_processing = false
+      picture.remove_image!
+    end
+
+    it 'click on Subscribe should make subscription to category', js: true do
+      sign_in user
+
+      visit category_path(category.category_name)
+
+      expect(page).to have_css("input[value='Subscribe']")
+      click_on('Subscribe')
+      expect(page).to have_css("input[value='Unsubscribe']")
+
+    end
+  end
 end
