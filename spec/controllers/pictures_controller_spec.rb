@@ -2,20 +2,28 @@ require 'rails_helper'
 
 RSpec.describe PicturesController, type: :controller do
   before do
-    @picture = create(:picture)
     @user = create(:user)
+    @category = create(:category)
   end
 
   describe 'GET #index' do
-    it 'returns http success' do
+    let!(:first_picture) { create(:picture, category_id: @category.id) }
+    let!(:second_picture) { create(:picture, category_id: @category.id) }
+    let!(:third_picture) { create(:picture, category_id: @category.id) }
+    before { create(:like, picture: second_picture, user: @user) }
+
+    it 'returns http success and sorts pictures by likes' do
       get :index
       expect(response).to have_http_status(:success)
       expect(response.content_type).to eq 'text/html'
       expect(response.body).to eq ''
+      expect(assigns(:pictures)).to eq([second_picture, first_picture, third_picture])
     end
   end
 
   describe 'GET #show' do
+    before { @picture = create(:picture, category_id: @category.id) }
+
     context 'when user logged in' do
       it 'returns http success' do
         sign_in @user

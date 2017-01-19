@@ -35,6 +35,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'dotenv-rails'
+  gem 'rails-controller-testing'
 end
 
 group :test do

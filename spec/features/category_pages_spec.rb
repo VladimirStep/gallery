@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Category pages', :type => :feature do
+RSpec.feature 'Categories pages', :type => :feature do
   subject { page }
 
   before do
@@ -17,7 +17,7 @@ describe 'Category pages', :type => :feature do
                                         image: File.open(Rails.root.join('spec', 'fixtures', 'test1.jpg'))) }
   let(:user) { create(:user) }
 
-  describe 'index page' do
+  describe 'Index page' do
     before { visit categories_path }
 
     it { should have_content('Categories') }
@@ -25,7 +25,7 @@ describe 'Category pages', :type => :feature do
     it { should have_content('CATS') }
   end
 
-  describe 'show page' do
+  describe 'Show page' do
     before do
       category.reload
       picture.reload
@@ -56,7 +56,7 @@ describe 'Category pages', :type => :feature do
     end
   end
 
-  describe 'click on Subscribe/Unsubscribe on show page' do
+  describe 'Click on Subscribe/Unsubscribe on show page' do
     before do
       ImageUploader.enable_processing = true
       category.reload
