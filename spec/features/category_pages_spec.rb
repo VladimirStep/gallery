@@ -56,11 +56,12 @@ describe 'Category pages', :type => :feature do
     end
   end
 
-  describe 'subscription to category' do
+  describe 'click on Subscribe/Unsubscribe on show page' do
     before do
       ImageUploader.enable_processing = true
       category.reload
       picture.reload
+      user.reload
     end
 
     after do
@@ -68,15 +69,19 @@ describe 'Category pages', :type => :feature do
       picture.remove_image!
     end
 
-    it 'click on Subscribe should make subscription to category', js: true do
+    it 'should toggle subscription to category and switch between Subscribe/Unsubscribe form', js: true do
       sign_in user
-
       visit category_path(category.category_name)
-
       expect(page).to have_css("input[value='Subscribe']")
+      expect(user.subscriptions.count).to eq(0)
+
       click_on('Subscribe')
       expect(page).to have_css("input[value='Unsubscribe']")
+      expect(user.subscriptions.count).to eq(1)
 
+      click_on('Unsubscribe')
+      expect(page).to have_css("input[value='Subscribe']")
+      expect(user.subscriptions.count).to eq(0)
     end
   end
 end
