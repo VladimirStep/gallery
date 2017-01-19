@@ -11,9 +11,9 @@ RSpec.feature 'Categories pages', :type => :feature do
   end
 
   let(:category) { @categories.first }
-  let(:picture) { create(:picture, category_id: @categories.first.id) }
+  let(:picture) { create(:picture, category: @categories.first) }
   let(:other_category_picture) { create(:picture,
-                                        category_id: @categories.last.id,
+                                        category: @categories.last,
                                         image: File.open(Rails.root.join('spec', 'fixtures', 'test1.jpg'))) }
   let(:user) { create(:user) }
 
