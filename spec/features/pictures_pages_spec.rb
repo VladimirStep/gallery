@@ -23,7 +23,7 @@ RSpec.feature 'Pictures pages', :type => :feature do
   describe 'Show page' do
     let(:picture) { create(:picture, category: category) }
 
-    describe 'when user is not logged in' do
+    context 'when user is not logged in' do
       before do
         visit category_picture_path(category_category_name: category.category_name, id: picture.id)
       end
@@ -35,7 +35,7 @@ RSpec.feature 'Pictures pages', :type => :feature do
       it { should_not have_css('div#comment-form') }
     end
 
-    describe 'when user is logged in' do
+    context 'when user is logged in' do
       before do
         sign_in user
         page.driver.options[:headers] ||= {}
@@ -47,6 +47,27 @@ RSpec.feature 'Pictures pages', :type => :feature do
       it { should have_css('div#like-form') }
       it { should have_css('div#comment-form') }
     end
+  end
 
+  describe 'Modal window on show page' do
+    let(:picture) { create(:picture, category: category) }
+
+    before do
+      sign_in user
+      visit category_picture_path(category_category_name: category.category_name, id: picture.id)
+    end
+
+    it 'should open/close modal window', js: true do
+      expect(page).not_to have_css('body.modal-open')
+      expect(page).to have_css('div#myModal', visible: false)
+
+      find_link(class: 'thumbnail', href: '#').click
+      expect(page).to have_css('body.modal-open')
+      expect(page).to have_css('div#myModal', visible: true)
+
+      click_on('Close')
+      expect(page).not_to have_css('body.modal-open')
+      expect(page).to have_css('div#myModal', visible: false)
+    end
   end
 end
