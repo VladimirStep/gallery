@@ -20,7 +20,9 @@
 %h4#comments-counter
   = @comments_counter
   = t('.comment', count: @comments_counter)
-= render 'form' if user_signed_in?
+- if user_signed_in?
+  #comment-form
+    = render 'form'
 .comments-list
   = render @comments
 %nav{'aria-label' => 'Page navigation', class: 'text-center'}

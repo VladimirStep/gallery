@@ -1,6 +1,5 @@
-#comment-form
-  = form_for :comment, url: create_comment_path(@picture), remote: true do |f|
-    .form-group
-      = f.text_area :body, class: 'form-control'
-      %br
-      = f.submit t('.add_comment'), class: 'btn btn-primary'
+= form_for :comment, url: create_comment_path(@picture), remote: true do |f|
+  .form-group
+    = f.text_area :body, class: 'form-control'
+    %br
+    = f.submit t('.add_comment'), class: 'btn btn-primary'
