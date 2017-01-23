@@ -25,6 +25,11 @@ $link-color: $brand-primary;
 $link-hover-color: lighten($link-color, 15%);
 $link-hover-decoration: none;
 
+$font-size-base: 13px;
+
+$component-active-color: orange;
+$component-active-bg: red;
+
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -106,7 +111,7 @@ main {
 
   background-image: url("bg-footer.jpg");
   background-size: 100%;
-  color: #6E6968;
+  //color: #6E6968;
 }
 
 .social-img {
