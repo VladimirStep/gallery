@@ -11,17 +11,31 @@
  * It is generally better to create a new file per style scope.
  */
 
+/* Override bootstrap variables */
+
+$brand-primary:         darken(#a5123e, 6.5%) !default; // #337ab7
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+$body-bg: rgba(47, 46, 46, 1);
+$text-color: #eee;
+$link-color: $brand-primary;
+$link-hover-color: lighten($link-color, 15%);
+$link-hover-decoration: none;
+
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 main {
   min-height: calc(100vh - 240px);
-  //background-color: #B0AAAA;
-  background-color: rgba(47, 46, 46, 1);
-  //.container {
-  //  background-color: #B0AAAA;
-  //}
+}
+
+* {
+  color: #ffffff;
 }
 
 .image-holder {
@@ -65,7 +79,7 @@ main {
 
 .header {
   min-height: 80px;
-  background-color: rgba(47, 46, 46, 1);
+  //background-color: rgba(47, 46, 46, 1);
   padding-top: 15px;
 }
 
@@ -74,7 +88,7 @@ main {
 }
 
 .navbar-inverse {
-  //background-color: rgba(47, 46, 46, 1);
+
 
 }
 
@@ -88,8 +102,8 @@ main {
 .footer {
   min-height: 160px;
   padding-top: 50px;
-  background-color: rgba(47, 46, 46, 1);
-  //background-color: #6E6968;
+  //background-color: rgba(47, 46, 46, 1);
+
   background-image: url("bg-footer.jpg");
   background-size: 100%;
   color: #6E6968;
