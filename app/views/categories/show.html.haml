@@ -9,12 +9,12 @@
       %div.col-xs-6.col-sm-4.col-md-3
         %a.thumbnail{href: "#{category_picture_url(picture.category.category_name, picture)}"}
           .image-holder.center-block
-            %img.img-responsive.center-block{src: "#{picture.image.thumb.url}"}
-          .caption.text-center
-            = image_tag 'heart.png'
-            %span.small
-              = picture.likes_count || 0
-              = t('.like', count: (picture.likes_count || 0))
+            %img.cover{src: "#{picture.image.thumb.url}"}
+            .text-center.caption.image-header
+              = image_tag 'heart.png'
+              %span.small
+                = picture.likes_count || 0
+                = t('.like', count: (picture.likes_count || 0))
   %nav{'aria-label' => 'Page navigation', class: 'text-center'}
     = paginate @pictures
   

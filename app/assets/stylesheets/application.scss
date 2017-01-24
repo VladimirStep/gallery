@@ -43,13 +43,28 @@ main {
   color: #ffffff;
 }
 
+.thumbnail {
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.thumbnail:hover {
+  border: none;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
 .image-holder {
-	width: 128px;
-	height: 128px;
-	display: flex;
-	img {
-		align-self: center;
-	}
+	height: 160px;
+    position: relative;
+}
+
+.image-header {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  opacity: 0.65;
 }
 
 .image-holder-show {
@@ -57,6 +72,12 @@ main {
 	.img-responsive {
 		max-height: 500px;
 	}
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .caption {
@@ -90,6 +111,7 @@ main {
 
 .navbar {
   border-radius: 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .navbar-inverse {

@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
   before_action :authenticate_user!, only: :show
 
   def index
-    @pictures = Picture.all.order(likes_count: :desc).page(params[:page]).per(5)
+    @pictures = Picture.all.order(likes_count: :desc).page(params[:page]).per(8)
   end
 
   def show
