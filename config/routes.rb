@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root to: 'pictures#index'
+  root to: 'static_pages#index'
   devise_for :users, controllers: { sessions: 'users/sessions',
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :categories, param: :category_name, only: [:index, :show] do
     get ':id', to: 'pictures#show', as: 'picture'
   end
-  
+  resources :pictures, only: [:index]
   resources :comments, only: [:index]
   post '/:picture_id/comments', to: 'comments#create', as: 'create_comment'
   resources :likes, path: '/:picture_id/likes', only: [:create, :destroy]
