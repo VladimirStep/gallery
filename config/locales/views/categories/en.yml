@@ -6,3 +6,7 @@ en:
       subscribe: "Subscribe"
     unsubscribe:
       unsubscribe: "Unsubscribe"
+    show:
+      like:
+        one: "like"
+        other: "likes"
