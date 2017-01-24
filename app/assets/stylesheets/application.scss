@@ -46,6 +46,7 @@ main {
 .thumbnail {
   border: none;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-bottom: 50px;
 }
 
 .thumbnail:hover {
@@ -56,6 +57,11 @@ main {
 .image-holder {
 	height: 160px;
     position: relative;
+}
+
+.image-category-holder {
+  height: 200px;
+  position: relative;
 }
 
 .image-header {
@@ -87,8 +93,8 @@ main {
 }
 
 .page-header {
-	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-top: 25px;
+	margin-bottom: 25px;
 	border-bottom: none;
 }
 
