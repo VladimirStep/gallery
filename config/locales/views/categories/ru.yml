@@ -6,3 +6,9 @@ ru:
       subscribe: "Подписаться"
     unsubscribe:
       unsubscribe: "Отписаться"
+    show:
+      like:
+        few: "лайка"
+        many: "лайков"
+        one: "лайк"
+        other: "лайка"

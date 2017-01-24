@@ -12,7 +12,9 @@
             %img.img-responsive.center-block{src: "#{picture.image.thumb.url}"}
           .caption.text-center
             = image_tag 'heart.png'
-            %span.small= pluralize(picture.likes_count, 'like')
+            %span.small
+              = picture.likes_count || 0
+              = t('.like', count: (picture.likes_count || 0))
   %nav{'aria-label' => 'Page navigation', class: 'text-center'}
     = paginate @pictures
   
