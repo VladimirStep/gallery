@@ -50,6 +50,19 @@ $legend-border-color: #e5e5e5;
 $input-group-addon-bg: $input-bg;
 $input-group-addon-border-color: $input-border;
 
+$dropdown-bg: $gray-lighter;
+$dropdown-border: rgba(0,0,0,.15);
+$dropdown-fallback-border: #ccc;
+$dropdown-divider-bg: #e5e5e5;
+$dropdown-link-color: $gray-dark;
+$dropdown-link-hover-color: $gray-lighter;
+$dropdown-link-hover-bg: $gray-dark;
+$dropdown-link-active-color: $component-active-color;
+$dropdown-link-active-bg: $component-active-bg;
+$dropdown-link-disabled-color: $gray-light;
+$dropdown-header-color: $gray-light;
+$dropdown-caret-color: #000;
+
 $pagination-color: $text-color;
 $pagination-bg: $gray-darker;
 $pagination-border: darken($pagination-bg, 7%);
