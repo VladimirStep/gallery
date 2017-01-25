@@ -1,0 +1,77 @@
+// Rewrite bootstrap default variables
+
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:         darken(#a93616, 6.5%) !default; // #337ab7
+$brand-success: #249624 !default;
+$brand-info: #2b82ad !default;
+$brand-warning: #ab781e !default;
+$brand-danger: #a81e1a !default;
+
+$body-bg: rgba(47, 46, 46, 1);
+$text-color: #eee;
+$link-color: $text-color;
+$link-hover-color: lighten($brand-primary, 15%);
+$link-hover-decoration: none;
+
+$font-size-base: 13px;
+
+$component-active-color: #fff;
+$component-active-bg: $brand-primary;
+
+$input-bg: $gray;
+$input-bg-disabled: $gray-lighter;
+$input-color: $gray-lighter;
+$input-border: darken($gray-darker, 7%);
+$input-border-focus: lighten($brand-primary, 15%);
+$input-color-placeholder: $gray-light;
+$legend-color: $gray-light;
+$legend-border-color: #e5e5e5;
+$input-group-addon-bg: $input-bg;
+$input-group-addon-border-color: $input-border;
+
+$dropdown-bg: $gray-lighter;
+$dropdown-border: rgba(0,0,0,.15);
+$dropdown-fallback-border: #ccc;
+$dropdown-divider-bg: #e5e5e5;
+$dropdown-link-color: $gray-dark;
+$dropdown-link-hover-color: $gray-lighter;
+$dropdown-link-hover-bg: $gray-dark;
+$dropdown-link-active-color: $component-active-color;
+$dropdown-link-active-bg: $component-active-bg;
+$dropdown-link-disabled-color: $gray-light;
+$dropdown-header-color: $gray-light;
+$dropdown-caret-color: #000;
+
+$nav-link-hover-bg:                         $gray-dark !default;
+
+$pagination-color: $text-color;
+$pagination-bg: $gray-darker;
+$pagination-border: darken($pagination-bg, 7%);
+$pagination-hover-color: $link-hover-color;
+$pagination-hover-bg: $gray-dark;
+$pagination-hover-border: $pagination-border;
+$pagination-active-color: #fff;
+$pagination-active-bg: $brand-primary;
+$pagination-active-border: darken($pagination-bg, 7%);
+$pagination-disabled-color: $pagination-color;
+$pagination-disabled-bg: $pagination-bg;
+$pagination-disabled-border: $pagination-border;
+
+$state-success-text: #dff0d8;
+$state-success-bg: #3c763d;
+$state-success-border: darken($state-success-bg, 5%);
+$state-info-text: #d9edf7;
+$state-info-bg: #31708f;
+$state-info-border: darken($state-info-bg, 7%);
+$state-warning-text: #fcf8e3;
+$state-warning-bg: #8a6d3b;
+$state-warning-border: darken($state-warning-bg, 5%);
+$state-danger-text: #f2dede;
+$state-danger-bg: #a94442;
+$state-danger-border: darken($state-danger-bg, 5%);
