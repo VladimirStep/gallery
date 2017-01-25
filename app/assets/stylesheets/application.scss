@@ -52,6 +52,18 @@ $pagination-disabled-color: $pagination-color;
 $pagination-disabled-bg: $pagination-bg;
 $pagination-disabled-border: $pagination-border;
 
+$input-bg: $gray;
+$input-bg-disabled: $gray-lighter;
+$input-color: $gray-lighter;
+$input-border: darken($gray-darker, 7%);
+$input-border-focus: lighten($brand-primary, 15%);
+$input-color-placeholder: $gray-light;
+$legend-color: $gray-light;
+$legend-border-color: #e5e5e5;
+$input-group-addon-bg: $input-bg;
+$input-group-addon-border-color: $input-border;
+
+
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
