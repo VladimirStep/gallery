@@ -15,7 +15,14 @@
 
 /* Override bootstrap variables */
 
-$brand-primary:         darken(#a5123e, 6.5%) !default; // #337ab7
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:         darken(#a93616, 6.5%) !default; // #337ab7
 $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
@@ -23,14 +30,28 @@ $brand-danger:          #d9534f !default;
 
 $body-bg: rgba(47, 46, 46, 1);
 $text-color: #eee;
-$link-color: $brand-primary;
-$link-hover-color: lighten($link-color, 15%);
+$link-color: $text-color;
+$link-hover-color: lighten($brand-primary, 15%);
 $link-hover-decoration: none;
 
 $font-size-base: 13px;
 
-$component-active-color: orange;
-$component-active-bg: red;
+$component-active-color: #fff;
+$component-active-bg: $brand-primary;
+
+$pagination-color: $text-color;
+$pagination-bg: $gray-darker;
+$pagination-border: darken($pagination-bg, 7%);
+$pagination-hover-color: $link-hover-color;
+$pagination-hover-bg: $gray-dark;
+$pagination-hover-border: $pagination-border;
+$pagination-active-color: #fff;
+$pagination-active-bg: $brand-primary;
+$pagination-active-border: $brand-primary;
+$pagination-disabled-color: $pagination-color;
+$pagination-disabled-bg: $pagination-bg;
+$pagination-disabled-border: $pagination-border;
+
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
