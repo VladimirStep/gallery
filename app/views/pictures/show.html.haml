@@ -25,5 +25,5 @@
     = render 'form'
 .comments-list
   = render @comments
-%nav{'aria-label' => 'Page navigation', class: 'text-center'}
+%nav{'aria-label' => 'Page navigation', class: 'text-center pagination-holder'}
   = paginate @comments

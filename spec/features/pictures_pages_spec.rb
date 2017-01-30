@@ -113,7 +113,37 @@ RSpec.feature 'Pictures pages', :type => :feature do
       end
       expect(page).to have_content('1 COMMENT')
       expect(picture.comments.count).to eq(1)
+    end
+  end
 
+  describe 'Pagination on Show page' do
+    let(:picture) { create(:picture, category: category) }
+
+    before do
+      sign_in user
+      visit category_picture_path(category_category_name: category.category_name, id: picture.id)
+    end
+
+    it { should have_no_selector('ul.pagination') }
+    it 'should not have pagination with 5 or less comments on page', js: true do
+      5.times do
+        within('#comment-form') do
+          fill_in('comment[body]', with: 'Test comment')
+          click_on('Add Comment')
+        end
+      end
+      expect(page).to have_no_selector('ul.pagination')
+    end
+    it 'should have pagination with more then 5 comments', js: true do
+      6.times do
+        within('#comment-form') do
+          fill_in('comment[body]', with: 'Test comment')
+          click_on('Add Comment')
+        end
+      end
+      expect(page).to have_selector('ul.pagination')
+      expect(picture.comments.count).to eq(6)
+      expect(all('.comments-list > .media').count).to eq(5)
     end
   end
 end
