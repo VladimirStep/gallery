@@ -9,14 +9,14 @@ RSpec.feature 'Pictures pages', :type => :feature do
   describe 'Index page' do
     before do
       10.times { create(:picture, category: category) }
-      visit root_path
+      visit pictures_path
     end
 
     it { should have_content('Pictures') }
     it { should have_css("img[src*='test.jpg']") }
     it { should have_selector('ul.pagination') }
-    it 'shows only 5 pictures per page' do
-      expect(all("img[src*='test.jpg']").count).to eq(5)
+    it 'shows 8 pictures per page' do
+      expect(all("img[src*='test.jpg']").count).to eq(8)
     end
   end
 

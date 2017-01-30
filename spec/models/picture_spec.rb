@@ -19,8 +19,8 @@ RSpec.describe Picture, type: :model do
   it { should be_valid }
 
   context 'the thumb version' do
-    it 'scales down the image to to fit within 128 by 128 pixels' do
-      expect(@picture.image.thumb).to be_no_larger_than(128, 128)
+    it 'scales down the image to to fit within 300 by 300 pixels' do
+      expect(@picture.image.thumb).to be_no_larger_than(300, 300)
     end
   end
 
