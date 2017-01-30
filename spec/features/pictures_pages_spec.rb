@@ -113,6 +113,7 @@ RSpec.feature 'Pictures pages', :type => :feature do
       end
       expect(page).to have_content('1 COMMENT')
       expect(picture.comments.count).to eq(1)
+      expect(find_field(id: 'comment_body').value).to eq('')
     end
   end
 
