@@ -95,7 +95,7 @@ RSpec.feature 'ChatRoom pages', :type => :feature do
         end
         click_button('Post')
         expect(find_field(id: 'message_body').value).to eq('')
-        Capybara.using_wait_time 20 do
+        Capybara.using_wait_time 60 do
           expect(page).to have_css('#messages p', text: message)
           expect(user.messages.count).to eq(1)
         end
