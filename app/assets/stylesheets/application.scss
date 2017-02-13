@@ -127,6 +127,13 @@ h1.logo-header {
   border-left: 3px solid #ffffff;
 }
 
+.navbar-text {
+  @media (min-width: 0px) {
+    margin-left: $navbar-padding-horizontal;
+    margin-right: $navbar-padding-horizontal;
+  }
+}
+
 
 /* Footer */
 
