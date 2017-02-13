@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Sign in page', :type => :feature do
-  subject { page }
   let(:user) { create(:user) }
   let(:invalid_email) { 'invalid@email.com' }
   let(:invalid_password) { 'invalid' }
