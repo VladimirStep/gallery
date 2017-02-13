@@ -96,3 +96,5 @@ end
 ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
 
 Capybara.server = :puma
+
+Recaptcha.configuration.skip_verify_env.delete('test')
