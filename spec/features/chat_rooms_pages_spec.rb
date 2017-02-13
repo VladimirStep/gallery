@@ -95,15 +95,28 @@ RSpec.feature 'ChatRoom pages', :type => :feature do
         end
         click_button('Post')
         expect(find_field(id: 'message_body').value).to eq('')
-        Capybara.using_wait_time 60 do
-          expect(page).to have_css('#messages p', text: message)
-          expect(user.messages.count).to eq(1)
-        end
+        expect(page).to have_css('#messages p', text: message)
+        expect(user.messages.count).to eq(1)
       end
     end
   end
 
-  describe 'Create New Chat' do
-
+  describe 'Create New Chat', js: true do
+    let(:title) { 'My new chat room' }
+    before do
+      sign_in user
+      visit new_chat_room_path
+    end
+    it 'creates new chat' do
+      expect(user.chat_rooms.count).to eq(0)
+      within('#new_chat_room') do
+        fill_in('Title', with: title)
+      end
+      click_button('Add')
+      expect(page).to have_content('Chat room added!')
+      expect(page).to have_current_path(chat_rooms_path(locale: :en))
+      expect(user.chat_rooms.count).to eq(1)
+      expect(page).to have_css('.nav.nav-pills.nav-stacked li a', text: title)
+    end
   end
 end
