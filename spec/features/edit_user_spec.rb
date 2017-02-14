@@ -29,8 +29,14 @@ RSpec.describe 'User Profile', :type => :feature do
       click_button('Update')
       expect(page).to have_current_path(root_path(locale: :en))
       expect(page).to have_content('Your account has been updated successfully.')
-      # user.reload
-      # expect(user.password).to eq(new_password)
+      click_on(user.email)
+      click_link('Sign out')
+      expect(page).to have_content('Signed out successfully.')
+      click_link('Sign in')
+      fill_in('Email', with: user.email)
+      fill_in('Password', with: new_password)
+      click_button('Log in')
+      expect(page).to have_content('Signed in successfully.')
     end
   end
 end
